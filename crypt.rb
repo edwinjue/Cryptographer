@@ -5,7 +5,7 @@ class BaseClass
   	charAr.each do |char|
   		index = @input.index(char)
   		if index != nil
-  			outputStr += @output[index].to_s
+  			outputStr += @output[index]
   		else
   			outputStr += char
   		end
@@ -16,8 +16,8 @@ end
 
 class Encryptor < BaseClass
   def initialize
-  	@input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.scan(/./)
-  	@output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.scan(/./)
+  	@input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  	@output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
   end
   
 end
