@@ -1,40 +1,31 @@
-class Encryptor
+class BaseClass
+	def run(str)
+  	outputStr = ''
+  	charAr = str.to_s.scan(/./)
+  	charAr.each do |char|
+  		index = @input.index(char)
+  		if index != nil
+  			outputStr += @output[index].to_s
+  		else
+  			outputStr += char
+  		end
+  	end
+  	outputStr
+  end
+end
+
+class Encryptor < BaseClass
   def initialize
   	@input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.scan(/./)
   	@output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.scan(/./)
   end
-  def run(str)
-  	encryptedStr = ''
-  	charAr = str.to_s.scan(/./)
-  	charAr.each do |char|
-  		index = @input.index(char)
-  		if index != nil
-  			encryptedStr += @output[index].to_s
-  		else
-  			encryptedStr += char
-  		end
-  	end
-  	encryptedStr
-  end
+  
 end
 
-class Decryptor
+class Decryptor < BaseClass
   def initialize
   	@input = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
   	@output = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-  end
-  def run(str)
-  	decryptedStr = ''
-  	charAr = str.to_s.scan(/./)
-  	charAr.each do |char|
-  		index = @input.index(char)
-  		if index != nil
-  			decryptedStr += @output[index].to_s
-  		else
-  			decryptedStr += char
-  		end
-  	end
-  	decryptedStr
   end
 end
 
